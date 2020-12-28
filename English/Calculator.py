@@ -9,12 +9,12 @@ r = 0
 c = 0
 #Input 1
 Input_1_info = Label(root, text = "First number:", font = "20")
-Input_1_info.grid(row = r , column = c, padx = 3)
+Input_1_info.grid(row = r , column = c, padx = 5)
 Input_1 = Entry(root, bg  = "grey", width = 10)
 Input_1.grid(row = r + 1, column = c, padx = 10, pady = 10)
 #Input 2
 Input_2_info = Label(root, text = "Second number:", font = "20")
-Input_2_info.grid(row = r  , column = c + 1, padx = 3)
+Input_2_info.grid(row = r  , column = c + 1, padx = 5)
 Input_2 = Entry(root, bg  = "grey", width = 10)
 Input_2.grid(row = r + 1, column = c + 1,  padx = 10, pady = 10)
 #Operations
