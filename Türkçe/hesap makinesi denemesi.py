@@ -21,42 +21,50 @@ Giriş_2.grid(row = r + 1, column = c + 1,  padx = 10, pady = 10)
 def Toplama () : 
     try:
         global Sonuç
+        global SonuçÇubuğu
         Sonuç =str(int(Giriş_1.get()) + int(Giriş_2.get()))
         #Sonuç Çubuğu
         SonuçÇubuğu = Label(root, text = "Sonuç: " + Sonuç , font = 25)
-        SonuçÇubuğu.grid(row = r + 5, columnspan = 2)
+        SonuçÇubuğu.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("HATA", "SAYI GİRİN")
 
 def Çıkarma () :
     try:
         global Sonuç
+        global SonuçÇubuğu
         Sonuç =str(int(Giriş_1.get()) - int(Giriş_2.get()))
         #Sonuç Çubuğu
         SonuçÇubuğu = Label(root, text = "Sonuç: " + Sonuç , font = 25)
-        SonuçÇubuğu.grid(row = r + 5, columnspan = 2)
+        SonuçÇubuğu.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("HATA", "SAYI GİRİN")
 def Çarpma () :
     try:
         global Sonuç
+        global SonuçÇubuğu
         Sonuç =str(int(Giriş_1.get())*int(Giriş_2.get()))
         #Sonuç Çubuğu
         SonuçÇubuğu = Label(root, text = "Sonuç: " + Sonuç , font = 25)
-        SonuçÇubuğu.grid(row = r + 5, columnspan = 2)
+        SonuçÇubuğu.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("HATA", "SAYI GİRİN")
 def Bölme () :
     try :
         global Sonuç
+        global SonuçÇubuğu
         Sonuç =str(int(Giriş_1.get())/int(Giriş_2.get()))
         #Sonuç Çubuğu
         SonuçÇubuğu = Label(root, text = "Sonuç: " + Sonuç , font = 25)
-        SonuçÇubuğu.grid(row = r + 5, columnspan = 2)
+        SonuçÇubuğu.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("HATA", "SAYI GİRİN")
     except ZeroDivisionError:
         messagebox.showinfo("TANIMSIZ", "BÖLEN 0 OLAMAZ")
+def Temizle ():
+    Giriş_1.delete(0, END)
+    Giriş_2.delete(0, END)
+    SonuçÇubuğu.grid_forget()
 #İşlem seçimi
 ButonGenişliği = 5
 ButonYüksekliği = 1
@@ -72,5 +80,7 @@ ButonBoşluğu_dikey = 1
 İşlem_Seçimi_3.grid(row = r + 4 , column = c, padx = ButonBoşluğu_yatay , pady = ButonBoşluğu_dikey)
 İşlem_Seçimi_4 = Button(root, text = "/", font = "30", width = ButonGenişliği, height = ButonYüksekliği, command = Bölme)
 İşlem_Seçimi_4.grid(row = r + 4 , column = c + 1, padx = ButonBoşluğu_yatay , pady = ButonBoşluğu_dikey)
+Temizleme = Button(root, text = "Temizle", command = Temizle, width = 10)
+Temizleme.grid(row = r + 5, columnspan = 2)
 
 root.mainloop()
