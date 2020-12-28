@@ -21,42 +21,50 @@ Input_2.grid(row = r + 1, column = c + 1,  padx = 10, pady = 10)
 def Addition () : 
     try:
         global Result
+        global ResultLine
         Result =str(int(Input_1.get()) + int(Input_2.get()))
         #Result Çubuğu
         ResultLine = Label(root, text = "Result: " + Result , font = 25)
-        ResultLine.grid(row = r + 5, columnspan = 2)
+        ResultLine.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("ERROR", "ENTER NUMBER")
 
 def Subtraction () :
     try:
         global Result
+        global ResultLine
         Result =str(int(Input_1.get()) - int(Input_2.get()))
         #Result Çubuğu
         ResultLine = Label(root, text = "Result: " + Result , font = 25)
-        ResultLine.grid(row = r + 5, columnspan = 2)
+        ResultLine.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("ERROR", "ENTER NUMBER")
 def Multiplication () :
     try:
         global Result
+        global ResultLine
         Result =str(int(Input_1.get())*int(Input_2.get()))
         #Result Çubuğu
         ResultLine = Label(root, text = "Result: " + Result , font = 25)
-        ResultLine.grid(row = r + 5, columnspan = 2)
+        ResultLine.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("ERROR", "ENTER NUMBER")
 def Division () :
     try :
         global Result
+        global ResultLine
         Result =str(int(Input_1.get())/int(Input_2.get()))
         #Result Çubuğu
         ResultLine = Label(root, text = "Result: " + Result , font = 25)
-        ResultLine.grid(row = r + 5, columnspan = 2)
+        ResultLine.grid(row = r + 6, columnspan = 2)
     except ValueError:
         messagebox.showinfo("ERROR", "ENTER NUMBER")
     except ZeroDivisionError:
         messagebox.showinfo("TANIMSIZ", "DIVISOR CAN NOT BE 0")
+def Clean ():
+    Input_1.delete(0, END)
+    Input_2.delete(0, END)
+    ResultLine.grid_forget()
 #Decide Operation
 ButtonWidth = 5
 ButtonHeight = 1
@@ -72,5 +80,7 @@ Decide_Operation_3 = Button(root, text = "*", font = "30", width = ButtonWidth, 
 Decide_Operation_3.grid(row = r + 4 , column = c, padx = ButtonSpace_horizontal , pady = ButtonSpace_vertical)
 Decide_Operation_4 = Button(root, text = "/", font = "30", width = ButtonWidth, height = ButtonHeight, command = Division)
 Decide_Operation_4.grid(row = r + 4 , column = c + 1, padx = ButtonSpace_horizontal , pady = ButtonSpace_vertical)
+Cleaning = Button(root, text = "Clean", command = Clean, width = 10)
+Cleaning.grid(row = r + 5, columnspan = 2)
 
 root.mainloop()
